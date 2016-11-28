@@ -1,0 +1,1092 @@
+body {
+  padding: 25px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+img.panorama {
+
+ width:1024px;
+ height:768px;
+
+}
+
+
+img.vpn-image {
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+}
+
+img.carousel-image {
+  width: 560px;
+  height: 180px;
+}
+
+img.carousel-image2 {
+  width: 320px;
+  height: 240px;
+}
+
+img.carousel-image3 {
+  width: 320px;
+  height: 240px;
+}
+
+img.carousel-image4 {
+  width: 240px;
+  height: 240px;
+}
+
+img.carousel-image5 {
+  width: 320px;
+  height: 240px;
+}
+
+.mainMenuTitle1 {
+	color: #46473f;
+}
+
+.mainMenuTitle2 {
+	color: #4E51D8;
+}
+
+.mapContainer {
+        width: 800px;
+        height: 400px;
+        background-color: #CCC;
+}
+
+#search {
+  text-align: center;
+  width:500px;
+  height: 70px;
+  font-size:3.5em;
+  border-radius:8px;
+}
+
+.link {
+	color: #0069FF;
+}
+
+.menuImage {
+    padding-top:10px;
+    display:block;
+    margin:auto;
+}
+
+.fullScreen {
+   float: right;
+   width: 18px;
+   height: 18px;
+   padding-right: 6px;
+}
+
+
+.timerIcon {
+	
+}
+
+.headerImage {
+
+}
+
+.submitbutton {
+	padding-top: 14px;	
+}
+
+.labelClass {
+	font-weight: bold;
+	color: #46473f;
+}
+
+.labelClass2 {
+	font-weight: bold;
+	color: #8cc84b;
+}
+	
+.menulink {
+	color: #0069FF;
+	padding: 4px;
+}
+
+.mainfooter {
+	padding: 8px;
+	width:800px;
+	border:0px solid #B0BDEC;
+	height:50px;
+	position:absolute; bottom:0;
+}
+
+.mainfooterleft {
+	text-align: left;
+	width:70%;
+	float:left;
+}
+
+.mainfooterright {
+	text-align: right;
+	width:30%;
+	float:right;
+}
+
+.mainheader {
+	padding: 8px;
+	width:800px;
+	border:0px solid #B0BDEC;
+	height:18px;
+	position:absolute; top:0;
+}
+
+.mainheaderleft {
+	text-align: left;
+	width:50%;
+	float:left;
+}
+
+.mainheaderright {
+	text-align: right;
+	width:50%;
+	float:right;
+}
+
+.loginMain {
+  width:800px;
+  height:300px;
+  border:0px solid #B0BDEC;
+  padding: 6px;
+  padding-top: 80px;
+}
+
+.loginCredentials {
+	width:400px;
+	float:right;
+}
+
+.loginLogo {
+	width:244px;
+	float:left;
+    padding-right: 36px;
+}
+
+.maincontainer {
+  width:800px;
+  height:300px;
+  border:1px solid #B0BDEC;
+}
+
+.maincontainer200 {
+  width:800px;
+  height:200px;
+  border:1px solid #B0BDEC;
+}
+
+.maincontainer240 {
+  width:800px;
+  height:240px;
+  border:1px solid #B0BDEC;
+}
+
+.maincontainerWithScroll {
+  width:800px;
+  height:300px;
+  border:1px solid #B0BDEC;
+  overflow-y:scroll; 
+  overflow-x:hidden;
+}
+
+.maincontainer100 {
+  width:800px;
+  height:400px;
+  border:1px solid #B0BDEC;
+}
+
+.maincontainer460 {
+  width:800px;
+  height:460px;
+  border:1px solid #B0BDEC;
+}
+
+.maincontainer480 {
+  width:800px;
+  height:480px;
+  border:1px solid #B0BDEC;
+}
+
+.mainFullAccountcontainer {
+  width:800px;
+  height:440px;
+  border:1px solid #B0BDEC;
+}
+
+.mainFullProfilecontainer {
+  width:800px;
+  height:380px;
+  border:1px solid #B0BDEC;
+}
+
+.mainGridContainer {
+	width:1024px;
+  	height:400px;
+  	border:0px solid #B0BDEC;
+}
+
+.mainGridStatsContainer {
+	width:1024px;
+  	height:400px;
+  	border:0px solid #B0BDEC;
+}
+
+.mainGridStatsContainer2 {
+	width:320px;
+  	height:400px;
+  	border:0px solid #B0BDEC;
+}
+
+.mainGridStatsContainer3 {
+	width:500px;
+  	border:0px solid #B0BDEC;
+}
+
+.mainGridGVHDetailsContainer {
+	width:1400px;
+  	height:600px;
+  	border:1px solid #000000;
+  	overflow-y:scroll; 
+  	overflow-x:scroll;
+}
+
+.mainGridGVHContainer {
+	width:800px;
+  	height:400px;
+  	border:1px solid #000000;
+  	overflow-y:scroll; 
+  	overflow-x:hidden;
+}
+
+.mainGridProfilesByRoleContainer {
+	width:800px;
+  	height:160px;
+  	border:1px solid #000000;
+  	overflow-y:scroll; 
+  	overflow-x:hidden;
+}
+
+.mainGridDeviceTypesContainer {
+	width:800px;
+  	height:160px;
+  	border:1px solid #000000;
+  	overflow-y:scroll; 
+  	overflow-x:hidden;
+}
+
+.mainGridDeviceMakesContainer {
+	width:800px;
+  	height:160px;
+  	border:1px solid #000000;
+  	overflow-y:scroll; 
+  	overflow-x:hidden;
+}
+
+
+.mainGridProfilesByRoleContainerC {
+	width:398px;
+  	height:160px;
+  	border:1px solid #000000;
+  	overflow-y:scroll; 
+  	overflow-x:hidden;
+}
+
+.mainGridProfilesByRoleContainerB {
+	width:398px;
+  	height:160px;
+  	border:1px solid #000000;
+}
+
+.mainGridDeviceTypesContainerB {
+	width:400px;
+  	height:160px;
+  	border:1px solid #000000;
+}
+
+.mainGridDeviceMakesContainerB {
+	width:400px;
+  	height:60px;
+  	border:1px solid #000000;
+}
+
+.mainStatLineContainer {
+	width:820px;
+  	height:316px;
+  	border:1px solid #000000;
+}
+
+.mainStatsContainer {
+	width:800px;
+	height:220px;
+  	border:0px solid #000000;
+}
+
+.mainStatsContainerB {
+	width:820px;
+	height:220px;
+  	border:0px solid #000000;
+}
+
+.mainStatsContainerC {
+	width:820px;
+	height:220px;
+  	border:0px solid #000000;
+  	overflow-y:scroll; 
+  	overflow-x:hidden;
+}
+
+.mainGridTop25Container {
+	width:800px;
+  	height:400px;
+  	border:0px solid #000000;
+}
+
+.mainGridTop25ContainerWide {
+	width:1024px;
+  	height:400px;
+  	border:0px solid #000000;
+}
+
+.mainGridAccountStatsContainer {
+	width:800px;
+  	height:300px;
+  	border:0px solid #000000;
+}
+
+.mainGrid {
+	width:1024px;
+  	border:1px solid #B0BDEC;
+}
+
+.mainStatsGrid {
+	width:1024px;
+  	border:1px solid #B0BDEC;
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainHistoryStatsGrid {
+	width:480px;
+  	border:1px solid #B0BDEC;
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainStatsGrid2 {
+	width:320px;
+  	border:1px solid #B0BDEC;
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainStatsGrid3 {
+	width:500px;
+  	border:1px solid #B0BDEC;
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainStatsGridHeaderRow {
+	height:24px;
+  	border:1px solid #B0BDEC;
+  	font-weight: bold;
+  	background-color:#8cc84c;
+}
+
+.mainStatsGridHeaderRow2 {
+	height:24px;
+  	border:1px solid #B0BDEC;
+  	color: #FFFFFF;
+  	font-weight: bold;
+  	background-color:#46473f;
+}
+
+.mainStatsGridHeaderRow3 {
+	height:24px;
+  	border:1px solid #B0BDEC;
+  	color: #000000;
+  	font-weight: bold;
+  	background-color:#ece2c5;
+}
+
+.mainStatsGridHeaderRow4 {
+	height:24px;
+  	border:1px solid #000000;
+  	font-weight: bold;
+  	background-color:#DDDDDD;
+}
+
+.mainStatsGridHeaderRow5 {
+	height:24px;
+  	border:1px solid #000000;
+  	font-weight: bold;
+  	background-color:#CCCCCC;
+}
+
+.mainStatsGridHeaderRow6 {
+	height:24px;
+  	border:1px solid #000000;
+  	font-weight: bold;
+  	background-color:#AAAAAA;
+}
+
+.mainGVHDetailsGrid {
+width:1400px;
+}
+
+.mainGVHGrid {
+width:800px;
+}
+
+.mainGridHeaderRow {
+	height:24px;
+  	border:1px solid #B0BDEC;
+  	background-color:#8cc84c;
+}
+
+.mainGridGVHHeaderRow {
+	height:24px;
+  	border:1px solid #FFFFFF;
+  	color: #FFFFFF;
+  	background-color:#46473f;
+}
+
+.mainGridGVHDetailsHeaderRow {
+	height:24px;
+  	border:1px solid #FFFFFF;
+  	color: #000000;
+  	background-color:#8DAEE3;
+}
+
+.mainGridRow {
+	height:24px;
+  	border:1px solid #B0BDEC;
+}
+
+.mainGridCell {
+	width:16px;
+  	border:1px solid #B0BDEC;
+  	text-align:center;
+}
+
+.mainStatsGridCell {
+	width:32px;
+  	border:1px solid #B0BDEC;
+  	text-align:center;
+}
+
+.mainStatsGridCell3 {
+	column-span:4;
+  	text-align:left;
+  	padding-left: 4px;
+}
+
+
+.mainStatsGridCell2 {
+	width:32px;
+  	border:1px solid #B0BDEC;
+  	text-align:center;
+  	background-color:#AF3DB4;
+}
+
+.mainGridGVHCell {
+	width:15%;
+  	border:1px solid #000000;
+  	text-align:center;
+  	font: 11px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridGVHDetailsHeaderCell5 {
+	width:5%;
+  	border:1px solid #000000;
+  	text-align:center;
+  	font-weight: bold; 
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridGVHDetailsHeaderCell7 {
+	width:7%;
+  	border:1px solid #000000;
+  	text-align:center;
+  	font-weight: bold; 
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridGVHDetailsHeaderCell8 {
+	width:8%;
+  	border:1px solid #000000;
+  	text-align:center;
+  	font-weight: bold; 
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridGVHDetailsHeaderCell10 {
+	width:10%;
+  	border:1px solid #000000;
+  	text-align:center;
+  	font-weight: bold; 
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridGVHDetailsHeaderCell15 {
+	width:15%;
+  	border:1px solid #000000;
+  	text-align:center;
+  	font-weight: bold; 
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridGVHDetailsHeaderCell20 {
+	width:20%;
+  	border:1px solid #000000;
+  	text-align:center;
+  	font-weight: bold; 
+  	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridGVHCellSmall {
+  	border:1px solid #000000;
+  	text-align:center;
+  	font: 9px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.mainGridHeaderCell {
+  	border:1px solid #B0BDEC;
+  	width:100%;
+}
+
+.mainMenuContainer {
+  width:800px;
+  height:260px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer80 {
+  width:800px;
+  height:80px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer100 {
+  width:800px;
+  height:100px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer120 {
+  width:800px;
+  height:120px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer140 {
+  width:800px;
+  height:140px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer160 {
+  width:800px;
+  height:160px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer180 {
+  width:800px;
+  height:180px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer200 {
+  width:800px;
+  height:200px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer220 {
+  width:800px;
+  height:220px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainer240 {
+  width:800px;
+  height:240px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+
+.containerTitle{
+  width: 800px;
+  height:32px;
+  display:table-cell; 
+  vertical-align:middle;
+  border:1px solid #B0BDEC;
+  padding-left: 8px;
+  font-weight: bold; 
+  color: #FFFFFF;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.containerTitle, .containerTitle1 {
+	  width: 800px;
+	  background-color:#2419B2;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle2 {
+	  width: 800px;
+	  background-color:#574DD8;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle3 {
+	  width: 800px;
+	  background-color:#7972D8;
+	  height:32px;
+	  color: #000000;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle3b {
+	  width: 800px;
+	  background-color:#79eeD8;
+	  height:32px;
+	  color: #000000;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle4 {
+	  width: 800px;
+	  background-color:#FFC500;
+	  height:32px;
+	  color: #000000;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle4b {
+	  width: 800px;
+	  background-color:#FFC5CC;
+	  height:32px;
+	  color: #000000;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle5 {
+	  width: 800px;
+	  background-color:#FFDF73;
+	  height:32px;
+	  color: #000000;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle6 {
+	  width: 794px;
+	  background-color:#99CCFF;
+	  height:32px;
+	  color: #000000;
+	  font: #000000 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle7 {
+	  width: 400px;
+	  background-color:#2419B2;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle8 {
+	  width: 820px;
+	  background-color:#2419B2;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle9 {
+	  width: 794px;
+	  background-color:#2419B2;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle10 {
+	  width: 794px;
+	  background-color:#CC66FF;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle11 {
+	  width: 1392px;
+	  background-color:#2419B2;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+      border:1px solid #000000;
+}
+
+.containerTitle, .containerTitle12 {
+	  width: 790px;
+	  background-color:#2419B2;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+}
+
+.containerTitle, .containerTitle13 {
+	  width: 1024px;
+	  background-color:#2419B2;
+	  height:32px;
+	  color: #FFFFFF;
+	  font: #FFFFFF 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	  display:table-cell; 
+      vertical-align:middle;
+      padding-left: 8px;
+      font-weight: bold; 
+      border:1px solid #000000;
+}
+
+
+.mainMenuContainerSmall{
+  width:800px;
+  height:126px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainerCharts{
+  width:800px;
+  height:174px;
+  border:1px solid #B0BDEC;
+  padding: 3px;
+}
+
+.mainMenuContainerVerySmall{
+  width:800px;
+  height:90px;
+  border:1px solid #B0BDEC;
+}
+
+.mainMenuContainerLogo{
+  width:800px;
+  height:40px;
+  border:0px solid #B0BDEC;
+  padding: 6px;
+}
+
+.mainDeviceModelContainer {
+	width:800px;
+	height:360px;
+    padding: 6px;
+    border:1px solid #B0BDEC;
+}
+
+.mainSubscriberContainer {
+	width:800px;
+	height:200px;
+    padding: 6px;
+    border:1px solid #B0BDEC;
+}
+.mainreceivercontainer {
+  width:800px;
+  height:240px;
+  border:1px solid #B0BDEC;
+}
+
+.subcontainer {
+  width:800px;
+  border:1px solid #B0BDEC;
+}
+
+.subReceivercontainer {
+  width:800px;
+  border:1px solid #B0BDEC;
+  text-align:left;
+}
+
+.mainIdSearch {
+  width:800px;
+  height:440px;
+  border:0px solid #B0BDEC;
+  padding: 6px;
+}
+
+.mainIdSearchHeader {
+  width:800px;
+  height:14px;
+  border:0px solid #B0BDEC;
+  padding: 6px;
+}
+
+.attributesContainer {
+  padding:4px;
+}
+
+.columnleft {
+  width:388px;
+  float:left;
+  padding-right: 8px;
+  padding-left: 4px;
+}
+
+.columnleftB {
+  width:400px;
+  float:left;
+}
+
+.columnright {
+  width:400px;
+  float:right;
+}
+
+.columnwide {
+  width:1024px;
+  float:left;
+  padding-right: 8px;
+  padding-left: 4px;
+}
+
+.servicesContainer {
+  width:400px;
+  height:160px;
+  float:right;
+  overflow-y:scroll; 
+  overflow-x:hidden;
+}
+
+.packagesContainer {
+  width:388px;
+  height:160px;
+  float:left;
+  padding-right: 8px;
+  padding-left: 4px;
+  overflow-y:scroll; 
+  overflow-x:hidden;
+}
+
+
+.twocolumn {
+  width:800px;
+  padding-top: 2px;
+}
+
+.columnrightImage {
+  width:400px;
+  float:right;
+}
+
+
+.query {
+  width:800px;
+}
+
+.f1 {
+	font-weight: bold; color: #ECE2C5;  }
+}
+
+.f2 {
+	font-weight: normal; color: #000000;  }
+}
+
+.gridCell {
+	border:1px solid #ECE2C5;
+}
+
+.liveChartsStyle {
+	width:654px;
+	height:160px;
+	float: left;
+}
+
+.liveChartsStyleCB {
+	width:140px;
+	height:160px;
+	float: right;
+}
+
+/* Login page */
+.login {
+  padding: 15px;
+  width: 400px;
+  min-height: 400px;
+  margin: 2% auto 0 auto;
+
+  .heading {
+    text-align: center;
+    margin-top: 1%;
+
+    h2 {
+      font-size: 3em;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      display: inline-block;
+      padding-bottom: 5px;
+      text-shadow: 1px 1px 3px $shadow-color;
+    }
+  }
+
+  form {
+    .input-group {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:last-of-type {
+        border-top: none;
+      }
+
+      span {
+        background: transparent;
+        min-width: 53px;
+        border: none;
+
+        i {
+          font-size: 1.5em;
+          color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    input.form-control {
+      @include normalize-input;
+
+      padding: 10px;
+      font-size: 1.6em;
+      width: 100%;
+      background: transparent;
+      color: $input-color;
+
+      &:focus {
+        border: none;
+      }
+    }
+
+    button {
+      margin-top: 20px;
+      background: $button-background-color;
+      border: none;
+      font-size: 1.6em;
+      font-weight: 300;
+      padding: 5px 0;
+      width: 100%;
+      border-radius: 3px;
+      color: lighten($button-background-color, 40%);
+      border-bottom: 4px solid darken($button-background-color, 10%);
+
+      &:hover {
+        background: tint($button-background-color, 4%);
+        -webkit-animation: hop 1s;
+        animation: hop 1s;
+      }
+    }
+  }
+}
+
+.float {
+  display: inline-block;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.float:hover, .float:focus, .float:active {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+}
+
+.input-group-addon, .input-group-btn {
+    width: 20%;
+}
+
+.center-button {
+    display: table;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.error {
+  background-color: #b52010;
+  color: white; 
+}

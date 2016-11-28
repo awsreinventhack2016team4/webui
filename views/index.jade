@@ -1,0 +1,239 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Hackathon')
+    meta(name='author', content='Team 4')
+    
+    title Hackathon
+
+    // Bootstrap core CSS
+    link(href='../bootstrap-3.3.6-dist/css/bootstrap.min.css', rel='stylesheet')
+
+    // link(href='../includes/DataTables-1.10.12/css/dataTables.jqueryui.min.css', rel='stylesheet')
+    link(href='../includes/DataTables-1.10.12/css/dataTables.bootstrap.min.css', rel='stylesheet')
+    
+    // Buttons support
+    link(href='../includes/DataTables-1.10.12/css/buttons.bootstrap.min.css', rel='stylesheet')
+    
+    link(href='../includes/bootstrap-switch.min.css', rel='stylesheet')
+ 
+    // Custom styles for this template
+    //link(href='#{pathToSelectedTemplateWithinBootstrap}/jumbotron.css', rel='stylesheet')
+
+    // Just for debugging purposes. Don't actually copy these 2 lines!
+    //if lt IE 9
+      script(src='../bootstrap/docs/assets/js/ie8-responsive-file-warning.js')
+    script(src='/docs/assets/js/ie-emulation-modes-warning.js')
+
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='/docs/assets/js/ie10-viewport-bug-workaround.js')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+
+    // Custom styles for this template
+
+    link(href='../stylesheets/style.css', rel='stylesheet')
+    link(href='../stylesheets/bootstrap-submenu-003.css', rel='stylesheet')
+    link(href='../stylesheets/bootstrap-dtv-custom-014.css', rel='stylesheet')
+      
+  // NAVBAR
+  // ==================================================
+  body
+    .navbar-wrapper
+      .container
+        .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+          .container
+            .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.dropdown.navbar-brand(href='#') 
+                    | Falcon
+
+            .navbar-collapse.collapse
+              ul.nav.navbar-nav
+
+
+                // REALTIME TOOLS
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>  Proactive Tools
+                    span.caret
+
+                  ul.dropdown-menu(role='menu')
+
+                    li.dropdown-header TBD Header
+                    li
+                      a(href='tbd', target='_blank') TBD
+                    li.dropdown-submenu(role='menu')
+                      a(href='tbd', tabindex='-1', target='_blank') tbd
+                      ul.dropdown-menu(role='menu')
+                       li
+                          a(href='tbd', target='_blank') TBD
+                       li
+                          a(href='tbd', target='_blank') TBD
+
+                    li.divider
+                    li.dropdown-header TBD Header
+                    li
+                      a(href='tbd', target='_blank') TBD
+
+                // TRENDS
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Trends
+                    span.caret
+                  ul.dropdown-menu(role='menu')
+                    li.dropdown-header Data Analysis
+
+                    li
+                      a(href='tbd', target='_blank') TBD
+                    li
+                      a(href='tbd', target='_blank') TBD
+
+                // RECOMMENDATIONS
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Recommendations
+                    span.caret
+                  ul.dropdown-menu(role='menu')
+                    li.dropdown-header TBD
+
+                    li
+                      a(href='tbd', target='_blank') TBD
+                    li
+                      a(href='tbd', target='_blank') TBD
+
+                // ALERTS
+                li.dropdown
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Alerts
+                    span.caret
+                  ul.dropdown-menu(role='menu')
+                    li.dropdown-header TBD
+
+                    li
+                      a(href='tbd', target='_blank') TBD
+                    li
+                      a(href='tbd', target='_blank') TBD
+
+  p.top-buffer
+
+  .container.wide(id='tech' style='display:block;visibility:visible;')
+   .row(id='tbd1')
+     .col-md-10.col-md-10
+       h2
+         | Falcon v1.0: Wildlife Resources Portal
+         h5 TBD
+         
+   p.top-buffer
+   .row(id='tbd2')
+     .col-sm-6.col-md-3
+       .thumbnail(style='background-color:#232323;')
+         img(src="./images/tbd.png")
+         .caption
+          h3
+           | Tools: <span style="color:#999966">Manage Proactively</span>
+          p
+           | TBD
+          p
+           a(href='TBD', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
+
+
+     .col-sm-6.col-md-3
+       .thumbnail(style='background-color:#232323;')
+         img(src="./images/tbd.png")
+         .caption
+          h3
+           | Trends: <span style="color:#999966">Field Data Analysis</span>
+          p
+           | TBD
+          p
+           a(href='tbd', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
+           a(href='tbd', target='_blank').btn.btn-default <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Watch
+
+     .col-sm-6.col-md-3
+       .thumbnail(style='background-color:#232323;')
+         img(src="./images/tbd.png")
+         .caption
+          h3
+           | Recommendations: <span style="color:#999966">TBD</span>
+          p
+           | TBD
+          p
+           a(href='tbd', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
+           a(href='tbd', target='_blank').btn.btn-default <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Watch
+
+
+     .col-sm-6.col-md-3
+       .thumbnail(style='background-color:#232323;')
+         img(src="./images/tbd.png")
+         .caption
+          h3
+           | Critical Alerts: <span style="color:#999966">Realtime Push</span>
+          p
+           | TBD
+          p
+           a(href='tbd', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
+
+
+
+  // Bootstrap core JavaScript
+  // ==================================================
+  script(src='../includes/DataTables-1.10.12/js/jszip.min.js')
+  script(src='../includes/DataTables-1.10.12/js/pdfmake.min.js')
+  script(src='../includes/DataTables-1.10.12/js/vfs_fonts.js')
+  script(src='../includes/jquery-1.11.1.min.js')
+  script(src='../includes/jquery.dataTables.min.js')
+  script(src='../bootstrap-3.3.6-dist/js/bootstrap.min.js')
+  script(src='../includes/tooltip-viewport-dtv-001.js')
+  script(src='../includes/dtv_child_tables_015.js')
+  script(src='../includes/DataTables-1.10.12/js/buttons.colVis.min.js')
+  script(src='../includes/DataTables-1.10.12/js/buttons.html5.min.js')
+  script(src='../includes/DataTables-1.10.12/js/buttons.print.min.js')
+  script(src='../includes/DataTables-1.10.12/js/dataTables.buttons.min.js')
+  script(src='../includes/DataTables-1.10.12/js/buttons.bootstrap.min.js')
+  script(src='../includes/bootstrap-switch.min.js')
+    
+  script(src='../includes/liquidfillgauge.js')
+  script(src='../includes/d3.v3.min.js')
+  
+  style
+    .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+
+  script.
+    $("[name='sunburstToggle']").bootstrapSwitch();
+
+    $('input[name="sunburstToggle"]').on('switchChange.bootstrapSwitch', function(event, state) {
+      toggle(state);
+    });
+
+     
+  // Data Tables
+  script.
+
+    function toggle(state) {
+      if (state) {
+
+      } else {
+
+      }
+      
+    }
+  
+    function showDiv(elementId) {
+      document.getElementById(elementId).style.display = "block";
+      document.getElementById(elementId).style.visibility = "visible";
+    }
+    
+    function hideDiv(elementId) {
+      document.getElementById(elementId).style.display = "none";
+      document.getElementById(elementId).style.visibility = "hidden";
+    }
