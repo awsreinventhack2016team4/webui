@@ -40,6 +40,10 @@ html(lang='en')
     link(href='../stylesheets/style.css', rel='stylesheet')
     link(href='../stylesheets/bootstrap-submenu-003.css', rel='stylesheet')
     link(href='../stylesheets/bootstrap-dtv-custom-014.css', rel='stylesheet')
+    link(href='../stylesheets/openlayer.css', rel='stylesheet')
+    
+    link(href='https://openlayers.org/en/v3.19.1/css/ol.css', type='text/css', rel='stylesheet')
+    
       
   // NAVBAR
   // ==================================================
@@ -130,63 +134,38 @@ html(lang='en')
    .row(id='tbd1')
      .col-md-10.col-md-10
        h2
-         | Falcon v1.0: Wildlife Resources Portal
-         h5 TBD
-         
-   p.top-buffer
-   .row(id='tbd2')
-     .col-sm-6.col-md-3
-       .thumbnail(style='background-color:#232323;')
-         img(src="./images/tbd.png")
-         .caption
-          h3
-           | Tools: <span style="color:#999966">Manage Proactively</span>
-          p
-           | TBD
-          p
-           a(href='TBD', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
+         | Giraffe v1.0: Protected Area Resources Portal
 
+  p.top-buffer
 
-     .col-sm-6.col-md-3
-       .thumbnail(style='background-color:#232323;')
-         img(src="./images/tbd.png")
-         .caption
-          h3
-           | Trends: <span style="color:#999966">Field Data Analysis</span>
-          p
-           | TBD
-          p
-           a(href='tbd', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
-           a(href='tbd', target='_blank').btn.btn-default <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Watch
+  .container.wide(id='mapcontainer' style='display:block;visibility:visible;')
+  .row(id='map1')
+    .col-md-2.col-md-2
+      .thumbnail
+        .caption
+         h3
+          | Filters
+         p
+          | Observation Types
+          .checkbox
+           .label
+            .input(type="checkbox" value="") Weapons
 
-     .col-sm-6.col-md-3
-       .thumbnail(style='background-color:#232323;')
-         img(src="./images/tbd.png")
-         .caption
-          h3
-           | Recommendations: <span style="color:#999966">TBD</span>
-          p
-           | TBD
-          p
-           a(href='tbd', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
-           a(href='tbd', target='_blank').btn.btn-default <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Watch
+    
+    .col-md-10.col-md-10
 
-
-     .col-sm-6.col-md-3
-       .thumbnail(style='background-color:#232323;')
-         img(src="./images/tbd.png")
-         .caption
-          h3
-           | Critical Alerts: <span style="color:#999966">Realtime Push</span>
-          p
-           | TBD
-          p
-           a(href='tbd', target='_blank').btn.btn-success <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> TBD
-
-
+      .map(id='map', tabindex='0')
+      .btn(id="zoom-out") Zoom out
+      .btn(id="zoom-in") Zoom in
+           
 
   // Bootstrap core JavaScript
   // ==================================================
+  
+  // Added for OpenLayers
+  script(src='https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL')
+  script(src='https://openlayers.org/en/v3.19.1/build/ol.js')
+  
   script(src='../includes/DataTables-1.10.12/js/jszip.min.js')
   script(src='../includes/DataTables-1.10.12/js/pdfmake.min.js')
   script(src='../includes/DataTables-1.10.12/js/vfs_fonts.js')
@@ -194,46 +173,52 @@ html(lang='en')
   script(src='../includes/jquery.dataTables.min.js')
   script(src='../bootstrap-3.3.6-dist/js/bootstrap.min.js')
   script(src='../includes/tooltip-viewport-dtv-001.js')
-  script(src='../includes/dtv_child_tables_015.js')
   script(src='../includes/DataTables-1.10.12/js/buttons.colVis.min.js')
   script(src='../includes/DataTables-1.10.12/js/buttons.html5.min.js')
   script(src='../includes/DataTables-1.10.12/js/buttons.print.min.js')
   script(src='../includes/DataTables-1.10.12/js/dataTables.buttons.min.js')
   script(src='../includes/DataTables-1.10.12/js/buttons.bootstrap.min.js')
   script(src='../includes/bootstrap-switch.min.js')
+  
+  script(src="../includes/bootstrap-checkbox.min.js")
     
   script(src='../includes/liquidfillgauge.js')
   script(src='../includes/d3.v3.min.js')
   
-  style
-    .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
-
   script.
-    $("[name='sunburstToggle']").bootstrapSwitch();
-
-    $('input[name="sunburstToggle"]').on('switchChange.bootstrapSwitch', function(event, state) {
-      toggle(state);
-    });
-
-     
-  // Data Tables
-  script.
-
-    function toggle(state) {
-      if (state) {
-
-      } else {
-
-      }
-      
-    }
   
-    function showDiv(elementId) {
-      document.getElementById(elementId).style.display = "block";
-      document.getElementById(elementId).style.visibility = "visible";
-    }
-    
-    function hideDiv(elementId) {
-      document.getElementById(elementId).style.display = "none";
-      document.getElementById(elementId).style.visibility = "hidden";
-    }
+    $(document).ready(function() {
+      
+      var map = new ol.Map({
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        target: 'map',
+        controls: ol.control.defaults({
+          attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+            collapsible: false
+          })
+        }),
+        view: new ol.View({
+          center: [0, 0],
+          zoom: 2
+        })
+      });
+
+      document.getElementById('zoom-out').onclick = function() {
+        var view = map.getView();
+        var zoom = view.getZoom();
+        view.setZoom(zoom - 1);
+      };
+
+      document.getElementById('zoom-in').onclick = function() {
+        var view = map.getView();
+        var zoom = view.getZoom();
+        view.setZoom(zoom + 1);
+      };
+      
+      $(':checkbox').checkboxpicker();
+      
+    });
