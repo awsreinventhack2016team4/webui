@@ -41,6 +41,7 @@ html(lang='en')
     link(href='../stylesheets/bootstrap-submenu-003.css', rel='stylesheet')
     link(href='../stylesheets/bootstrap-dtv-custom-014.css', rel='stylesheet')
     link(href='../stylesheets/openlayer.css', rel='stylesheet')
+    link(href='../stylesheets/slider.css', rel='stylesheet')
     
     link(href='https://openlayers.org/en/v3.19.1/css/ol.css', type='text/css', rel='stylesheet')
     
@@ -140,7 +141,7 @@ html(lang='en')
 
   .container.wide(id='mapcontainer' style='display:block;visibility:visible;')
   .row(id='map1')
-    .col-md-2.col-md-2
+    .col-md-3.col-md-3
       .thumbnail
         .caption
          h3
@@ -154,8 +155,14 @@ html(lang='en')
           p
            input(type="checkbox" name="people" id="people" onclick="drawLayer();" checked)
            &nbsp; People Direct Observation 
+          p
+          .well
+            | 2001 &nbsp;
+            input(type="text" data-slider-tooltip="hide" data-slider-min="2001" data-slider-max="2016" data-slider-step="1" data-slider-value="[2001,2016]" id="yearSlider").span2
+            | &nbsp; 2016
+
            
-    .col-md-10.col-md-10
+    .col-md-9.col-md-9
 
       .map(id='map', tabindex='0')
       .btn(id="zoom-out") Zoom out
@@ -182,8 +189,9 @@ html(lang='en')
   script(src='../includes/DataTables-1.10.12/js/dataTables.buttons.min.js')
   script(src='../includes/DataTables-1.10.12/js/buttons.bootstrap.min.js')
   script(src='../includes/bootstrap-switch.min.js')
-  
   script(src='../includes/liquidfillgauge.js')
+  
+  script(src='../includes/bootstrap-slider.js')
   script(src='../includes/d3.v3.min.js')
   
   script.
@@ -192,7 +200,13 @@ html(lang='en')
     var map;
   
     $(document).ready(function() {
+      
+     $('#yearSlider').slider().on('slideStop', function(ev){
+         drawLayer();
+      });
+     
      drawMap();
+     
     });
     
     function drawMap() {
@@ -234,6 +248,21 @@ html(lang='en')
     function drawLayer() {
       
       map.removeLayer(vectorLayer);
+      
+      var ys = $('#yearSlider').slider('getValue');
+      
+      var yearRangeStart = 2001;
+      var yearRangeEnd = 2016;
+      
+      if (ys[0] && ys[0].value) {
+        var yearsRange = ys[0].value.split(',');
+        yearRangeStart = yearsRange[0];
+        yearRangeEnd = yearsRange[1];
+      }
+      
+      
+      console.log('yearRangeStart: ' + yearRangeStart);
+      console.log('yearRangeEnd: ' + yearRangeEnd);
       
       var weaponsCB = document.getElementById("weapons").checked;
       var wildlifeCB = document.getElementById("wildlife").checked;
@@ -291,8 +320,14 @@ html(lang='en')
         }); 
         
         patrolIcon.setStyle(weaponStyle);
+        
         if (weaponsCB) {
-          featuresList.push(patrolIcon);
+
+          var year = new Date(patrol.waypoint_datetime).getFullYear();
+          if (yearRangeStart <= year && yearRangeEnd >= year) {
+            featuresList.push(patrolIcon);
+          }
+          
         }
 
       }
@@ -314,7 +349,10 @@ html(lang='en')
 
           patrolIcon.setStyle(wildlifeStyle);
           if (wildlifeCB) {
-            featuresList.push(patrolIcon);
+            var year = new Date(patrol.waypoint_datetime).getFullYear();
+            if (yearRangeStart <= year && yearRangeEnd >= year) {
+              featuresList.push(patrolIcon);
+            }
           }
       }
       
@@ -336,7 +374,10 @@ html(lang='en')
 
         patrolIcon.setStyle(peopleStyle);
         if (peopleCB) {
-          featuresList.push(patrolIcon);
+          var year = new Date(patrol.waypoint_datetime).getFullYear();
+          if (yearRangeStart <= year && yearRangeEnd >= year) {
+            featuresList.push(patrolIcon);
+          }
         }
 
       }
