@@ -134,7 +134,7 @@ html(lang='en')
    .row(id='tbd1')
      .col-md-10.col-md-10
        h2
-         | Protected Area Resources Portal
+         | Protected Area Impact Portal
 
   p.top-buffer
 
@@ -144,23 +144,17 @@ html(lang='en')
       .thumbnail
         .caption
          h3
-          | Filters
+          | Patrol Filters
          p
-          input(type="checkbox" name="weapons" checked)
+          input(type="checkbox" name="weapons" id="weapons" onclick="drawLayer();" checked)
           &nbsp; Weapons  
          p
-          input(type="checkbox" name="wildlife" checked)
+          input(type="checkbox" name="wildlife" id="wildlife" onclick="drawLayer();" checked)
           &nbsp; Wildlife  
-
-          h3
-           | Sources
           p
-           input(type="checkbox" name="patrols" checked)
-           &nbsp; Patrols  
-          p
-           input(type="checkbox" name="observations" checked)
-           &nbsp; Observations  
-    
+           input(type="checkbox" name="people" id="people" onclick="drawLayer();" checked)
+           &nbsp; People Direct Observation 
+           
     .col-md-10.col-md-10
 
       .map(id='map', tabindex='0')
@@ -194,9 +188,16 @@ html(lang='en')
   
   script.
   
+    var vectorLayer;
+    var map;
+  
     $(document).ready(function() {
+     drawMap();
+    });
+    
+    function drawMap() {
       
-      var map = new ol.Map({
+      map = new ol.Map({
         layers: [
           new ol.layer.Tile({
             source: new ol.source.OSM()
@@ -214,35 +215,8 @@ html(lang='en')
         })
       });
       
-      var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point( ol.proj.transform([-0.313474881, 11.70122006], 'EPSG:4326', 'EPSG:3857') ),
-        name: 'Null Island',
-        population: 4000,
-        rainfall: 500
-      }); 
+      drawLayer();
       
-      var iconStyle = new ol.style.Style({
-        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-          anchor: [0.5, 46],
-          anchorXUnits: 'fraction',
-          anchorYUnits: 'pixels',
-          opacity: 0.75,
-          src: '../images/details_open.png'
-        }))
-      });
-      
-      iconFeature.setStyle(iconStyle);
-      
-      var vectorSource = new ol.source.Vector({
-        features: [iconFeature]
-      });
-
-      var vectorLayer = new ol.layer.Vector({
-        source: vectorSource
-      });
-
-      map.addLayer(vectorLayer);
-
       document.getElementById('zoom-out').onclick = function() {
         var view = map.getView();
         var zoom = view.getZoom();
@@ -254,7 +228,127 @@ html(lang='en')
         var zoom = view.getZoom();
         view.setZoom(zoom + 1);
       };
-    
-
       
-    });
+    }
+    
+    function drawLayer() {
+      
+      map.removeLayer(vectorLayer);
+      
+      var weaponsCB = document.getElementById("weapons").checked;
+      var wildlifeCB = document.getElementById("wildlife").checked;
+      var peopleCB = document.getElementById("people").checked;
+      
+      var weaponStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          opacity: 0.75,
+          src: '../images/people.png'
+        }))
+      });
+      
+      var wildlifeStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          opacity: 0.75,
+          src: '../images/wildlife.png'
+        }))
+      });
+      
+      var peopleStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          opacity: 0.90,
+          src: '../images/people2.png'
+        }))
+      });
+
+      var featuresList = [];
+      
+      var weapons = !{weapons};
+      var wildlife = !{wildlife};
+      var people = !{people};
+      
+      for (var i = 0; i < weapons.length; i++) {
+        
+        var patrol = weapons[i];
+        
+        //patrol.longitude = 11.70122006;
+        //patrol.latitude = -0.313474881;
+        
+        var patrolIcon = new ol.Feature({
+          geometry: new ol.geom.Point( ol.proj.transform([patrol.longitude, patrol.latitude], 'EPSG:4326', 'EPSG:3857') ),
+          name: patrol.source,
+          id: patrol.waypoint_id,
+          waypoint_datetime: patrol.waypoint_datetime,
+          details: patrol.details
+        }); 
+        
+        patrolIcon.setStyle(weaponStyle);
+        if (weaponsCB) {
+          featuresList.push(patrolIcon);
+        }
+
+      }
+      
+      for (var i = 0; i < wildlife.length; i++) {
+        
+        var patrol = wildlife[i];
+        
+        //patrol.longitude = 11.70122006;
+        //patrol.latitude = -0.313474881;
+        
+        var patrolIcon = new ol.Feature({
+          geometry: new ol.geom.Point( ol.proj.transform([patrol.longitude, patrol.latitude], 'EPSG:4326', 'EPSG:3857') ),
+          name: patrol.source,
+          id: patrol.waypoint_id,
+          waypoint_datetime: patrol.waypoint_datetime,
+          details: patrol.details
+        }); 
+
+          patrolIcon.setStyle(wildlifeStyle);
+          if (wildlifeCB) {
+            featuresList.push(patrolIcon);
+          }
+      }
+      
+      for (var i = 0; i < people.length; i++) {
+        
+        var patrol = people[i];
+        
+        //patrol.longitude = 11.70122006;
+        //patrol.latitude = -0.313474881;
+        
+        var patrolIcon = new ol.Feature({
+          geometry: new ol.geom.Point( ol.proj.transform([patrol.longitude, patrol.latitude], 'EPSG:4326', 'EPSG:3857') ),
+          name: patrol.source,
+          id: patrol.waypoint_id,
+          waypoint_datetime: patrol.waypoint_datetime,
+          details: patrol.details
+        }); 
+        
+
+        patrolIcon.setStyle(peopleStyle);
+        if (peopleCB) {
+          featuresList.push(patrolIcon);
+        }
+
+      }
+      
+      var vectorSource = new ol.source.Vector({
+        features: featuresList
+      });
+
+      vectorLayer = new ol.layer.Vector({
+        source: vectorSource
+      });
+
+      map.addLayer(vectorLayer);
+
+    }
