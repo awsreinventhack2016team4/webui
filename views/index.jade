@@ -135,7 +135,7 @@ html(lang='en')
    .row(id='tbd1')
      .col-md-10.col-md-10
        h2
-         | Protected Area Impact Portal
+         | Protected Areas: Impact Portal
 
   p.top-buffer
 
@@ -145,20 +145,58 @@ html(lang='en')
       .thumbnail
         .caption
          h3
-          | Patrol Filters
+          | Observation Filters
          p
           input(type="checkbox" name="weapons" id="weapons" onclick="drawLayer();" checked)
-          &nbsp; Weapons  
+          &nbsp; Weapons 
+          img(src="../images/people.png") 
          p
           input(type="checkbox" name="wildlife" id="wildlife" onclick="drawLayer();" checked)
-          &nbsp; Wildlife  
+          &nbsp; Wildlife &nbsp; 
+          img(src="../images/wildlife-inverted.png") 
           p
            input(type="checkbox" name="people" id="people" onclick="drawLayer();" checked)
            &nbsp; People Direct Observation 
+           img(src="../images/people2.png") 
+           
+           
+         h3
+          | Patrol Filters
+         p
+          input(type="checkbox" name="logging" id="logging" onclick="drawLayer();")
+          &nbsp; Illegal Logging  
+          img(src="../images/logging-inverted.png") 
+         p
+          input(type="checkbox" name="elephant" id="elephant" onclick="drawLayer();")
+          &nbsp; Elephant Carcasses  
+          img(src="../images/elephant.png") 
+         p
+          input(type="checkbox" name="huntingCamps" id="huntingCamps" onclick="drawLayer();")
+          &nbsp; Hunting Camps
+          img(src="../images/huntingCamp.png") 
+         p
+          input(type="checkbox" name="snares" id="snares" onclick="drawLayer();")
+          &nbsp; Snares
+          img(src="../images/snares.png") 
+           
+          h3
+           | Heat Zones
+          p
+           input(type="checkbox" name="zone1" id="zone1" onclick="drawLayer();")
+           &nbsp; 1 km
+          p
+           input(type="checkbox" name="zone10" id="zone10" onclick="drawLayer();")
+           &nbsp; 10 km
+          p
+           input(type="checkbox" name="zone100" id="zone100" onclick="drawLayer();")
+           &nbsp; 100 km
+             
+          h3
+           | Reporting Range
           p
           .well
-            | 2001 &nbsp;
-            input(type="text" data-slider-tooltip="hide" data-slider-min="2001" data-slider-max="2016" data-slider-step="1" data-slider-value="[2001,2016]" id="yearSlider").span2
+            | 2000 &nbsp;
+            input(type="text" data-slider-tooltip="hide" data-slider-min="2000" data-slider-max="2016" data-slider-step="1" data-slider-value="[2000,2016]" id="yearSlider").span2
             | &nbsp; 2016
 
            
@@ -197,6 +235,9 @@ html(lang='en')
   script.
   
     var vectorLayer;
+    var zoneLayer1;
+    var zoneLayer10;
+    var zoneLayer100;
     var map;
   
     $(document).ready(function() {
@@ -225,7 +266,7 @@ html(lang='en')
         }),
         view: new ol.View({
           center: [0, 0],
-          zoom: 2
+          zoom: 6
         })
       });
       
@@ -248,10 +289,13 @@ html(lang='en')
     function drawLayer() {
       
       map.removeLayer(vectorLayer);
+      map.removeLayer(zoneLayer1);
+      map.removeLayer(zoneLayer10);
+      map.removeLayer(zoneLayer100);
       
       var ys = $('#yearSlider').slider('getValue');
       
-      var yearRangeStart = 2001;
+      var yearRangeStart = 2000;
       var yearRangeEnd = 2016;
       
       if (ys[0] && ys[0].value) {
@@ -260,13 +304,17 @@ html(lang='en')
         yearRangeEnd = yearsRange[1];
       }
       
-      
-      console.log('yearRangeStart: ' + yearRangeStart);
-      console.log('yearRangeEnd: ' + yearRangeEnd);
-      
       var weaponsCB = document.getElementById("weapons").checked;
       var wildlifeCB = document.getElementById("wildlife").checked;
       var peopleCB = document.getElementById("people").checked;
+      var loggingCB = document.getElementById("logging").checked;
+      var elephantCB = document.getElementById("elephant").checked;
+      var snaresCB = document.getElementById("snares").checked;
+      var huntingCampCB = document.getElementById("huntingCamps").checked;
+      
+      var zone1CB = document.getElementById("zone1").checked;
+      var zone2CB = document.getElementById("zone10").checked;
+      var zone3CB = document.getElementById("zone100").checked;
       
       var weaponStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
@@ -297,12 +345,57 @@ html(lang='en')
           src: '../images/people2.png'
         }))
       });
+      
+      var loggingStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          opacity: 0.90,
+          src: '../images/logging.png'
+        }))
+      });
+      
+      var elephantStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          opacity: 0.90,
+          src: '../images/elephant.png'
+        }))
+      });
+      
+      var snaresStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          opacity: 0.90,
+          src: '../images/snares.png'
+        }))
+      });
+      
+      var huntingCampStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 46],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          opacity: 0.90,
+          src: '../images/huntingCamp.png'
+        }))
+      });
+      
 
       var featuresList = [];
       
       var weapons = !{weapons};
       var wildlife = !{wildlife};
       var people = !{people};
+      var logging = !{logging};
+      var elephant = !{elephant};
+      var snares = !{snares};
+      var huntingCamps = !{huntingCamps};
       
       for (var i = 0; i < weapons.length; i++) {
         
@@ -322,6 +415,118 @@ html(lang='en')
         patrolIcon.setStyle(weaponStyle);
         
         if (weaponsCB) {
+
+          var year = new Date(patrol.waypoint_datetime).getFullYear();
+          if (yearRangeStart <= year && yearRangeEnd >= year) {
+            featuresList.push(patrolIcon);
+          }
+          
+        }
+
+      }
+      
+      for (var i = 0; i < snares.length; i++) {
+        
+        var patrol = snares[i];
+        
+        //patrol.longitude = 11.70122006;
+        //patrol.latitude = -0.313474881;
+        
+        var patrolIcon = new ol.Feature({
+          geometry: new ol.geom.Point( ol.proj.transform([patrol.longitude, patrol.latitude], 'EPSG:4326', 'EPSG:3857') ),
+          name: patrol.source,
+          id: patrol.waypoint_id,
+          waypoint_datetime: patrol.waypoint_datetime,
+          details: patrol.details
+        }); 
+        
+        patrolIcon.setStyle(snaresStyle);
+        
+        if (snaresCB) {
+
+          var year = new Date(patrol.waypoint_datetime).getFullYear();
+          if (yearRangeStart <= year && yearRangeEnd >= year) {
+            featuresList.push(patrolIcon);
+          }
+          
+        }
+
+      }
+      
+      for (var i = 0; i < huntingCamps.length; i++) {
+        
+        var patrol = huntingCamps[i];
+        
+        //patrol.longitude = 11.70122006;
+        //patrol.latitude = -0.313474881;
+        
+        var patrolIcon = new ol.Feature({
+          geometry: new ol.geom.Point( ol.proj.transform([patrol.longitude, patrol.latitude], 'EPSG:4326', 'EPSG:3857') ),
+          name: patrol.source,
+          id: patrol.waypoint_id,
+          waypoint_datetime: patrol.waypoint_datetime,
+          details: patrol.details
+        }); 
+        
+        patrolIcon.setStyle(huntingCampStyle);
+        
+        if (huntingCampCB) {
+
+          var year = new Date(patrol.waypoint_datetime).getFullYear();
+          if (yearRangeStart <= year && yearRangeEnd >= year) {
+            featuresList.push(patrolIcon);
+          }
+          
+        }
+
+      }
+      
+      for (var i = 0; i < elephant.length; i++) {
+        
+        var patrol = elephant[i];
+        
+        //patrol.longitude = 11.70122006;
+        //patrol.latitude = -0.313474881;
+        
+        var patrolIcon = new ol.Feature({
+          geometry: new ol.geom.Point( ol.proj.transform([patrol.longitude, patrol.latitude], 'EPSG:4326', 'EPSG:3857') ),
+          name: patrol.source,
+          id: patrol.waypoint_id,
+          waypoint_datetime: patrol.waypoint_datetime,
+          details: patrol.details
+        }); 
+        
+        patrolIcon.setStyle(elephantStyle);
+        
+        if (elephantCB) {
+
+          var year = new Date(patrol.waypoint_datetime).getFullYear();
+          if (yearRangeStart <= year && yearRangeEnd >= year) {
+            featuresList.push(patrolIcon);
+          }
+          
+        }
+
+      }
+      
+      for (var i = 0; i < logging.length; i++) {
+        
+        var patrol = logging[i];
+        
+        //patrol.longitude = 11.70122006;
+        //patrol.latitude = -0.313474881;
+        
+        var patrolIcon = new ol.Feature({
+          geometry: new ol.geom.Point( ol.proj.transform([patrol.longitude, patrol.latitude], 'EPSG:4326', 'EPSG:3857') ),
+          name: patrol.source,
+          id: patrol.waypoint_id,
+          waypoint_datetime: patrol.waypoint_datetime,
+          details: patrol.details
+        }); 
+        
+        patrolIcon.setStyle(loggingStyle);
+        
+        if (loggingCB) {
 
           var year = new Date(patrol.waypoint_datetime).getFullYear();
           if (yearRangeStart <= year && yearRangeEnd >= year) {
@@ -371,7 +576,6 @@ html(lang='en')
           details: patrol.details
         }); 
         
-
         patrolIcon.setStyle(peopleStyle);
         if (peopleCB) {
           var year = new Date(patrol.waypoint_datetime).getFullYear();
@@ -391,5 +595,44 @@ html(lang='en')
       });
 
       map.addLayer(vectorLayer);
+      
+      if (zone1CB) {
+        
+        zoneLayer1 = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: '../json/zonesheat1.geojson'
+            })
+        });
+        
+        map.addLayer(zoneLayer1);
+
+      }
+      
+      if (zone2CB) {
+        
+        zoneLayer10 = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: '../json/zonesheat10.geojson'
+            })
+        });
+        
+        map.addLayer(zoneLayer10);
+
+      }
+      
+      if (zone3CB) {
+        
+        zoneLayer100 = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: '../json/zonesheat100.geojson'
+            })
+        });
+
+        map.addLayer(zoneLayer100);
+
+      }
 
     }
